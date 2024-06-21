@@ -1,0 +1,12 @@
+{
+  "name": "mocks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.test.js"
+  },
+  "keywords": [],
+  "author": "Pedro Dalpa",
+  "license": "ISC",
+  "description": ""
+}
