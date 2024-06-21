@@ -1,0 +1,21 @@
+{
+  "name": "end-to-end",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test:watch": "npx mocha -w src/**.test.js",
+    "test:cov": "npx nyc npx mocha src/**.test.js",
+    "test:": "npx mocha src/**.test.js",
+    "start": "node src/api.js"
+  },
+  "keywords": [],
+  "author": "Pedro Dalpa",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "mocha": "^10.4.0",
+    "nyc": "^17.0.0",
+    "sinon": "^18.0.0",
+    "supertest": "^7.0.0"
+  }
+}
