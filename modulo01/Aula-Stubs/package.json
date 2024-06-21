@@ -1,0 +1,15 @@
+{
+  "name": "stubs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./src/**.test.js"
+  },
+  "keywords": [],
+  "author": "Pedro Dalpa",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sinon": "^18.0.0"
+  }
+}
