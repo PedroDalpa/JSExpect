@@ -1,4 +1,5 @@
 const Tax = require('../entities/tax');
+const Transaction = require('../entities/transaction');
 const BaseRepository = require('../repository/base');
 
 class CarService {
@@ -33,6 +34,36 @@ class CarService {
 
     const finalPrice = carCategory.price * tax * numberOfDays;
     return this.currencyFormat.format(finalPrice);
+  }
+
+  async rent(customer, carCategory, numberOfDays, startDate) {
+    const availableCar = await this.getAvailableCar(carCategory);
+    const finalAmount = this.calculateFinalAmount(
+      customer,
+      carCategory,
+      numberOfDays
+    );
+
+    const dueDate = new Date(
+      startDate.getTime() + numberOfDays * 24 * 60 * 60 * 1000
+    );
+
+    const dateFormatOptions = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+    const formatDueDate = dueDate.toLocaleDateString(
+      'pt-BR',
+      dateFormatOptions
+    );
+    return new Transaction({
+      car: availableCar,
+      customer,
+      amount: finalAmount,
+      startDate,
+      dueDate: formatDueDate,
+    });
   }
 }
 
